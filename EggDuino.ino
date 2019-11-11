@@ -19,6 +19,7 @@
    2	implement homing sequence via microswitch or optical device
  */
 
+#include "eggduino.h"
 #include "AccelStepper.h" // nice lib from http://www.airspayce.com/mikem/arduino/AccelStepper/
 #include <Servo.h>
 #include "SerialCommand.h" //nice lib from Stefan Rado, https://github.com/kroimon/Arduino-SerialCommand

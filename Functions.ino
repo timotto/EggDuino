@@ -1,3 +1,4 @@
+#include "eggduino.h"
 
 void makeComInterface(){
 	SCmd.addCommand("v",sendVersion);
