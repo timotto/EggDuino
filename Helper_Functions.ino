@@ -1,7 +1,4 @@
 void initHardware(){
-	// enable eeprom wait in avr/eeprom.h functions
-	SPMCSR &= ~SELFPRGEN;
-
 	loadPenPosFromEE();
 
 	pinMode(enableRotMotor, OUTPUT);
