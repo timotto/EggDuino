@@ -83,14 +83,14 @@ void prepareMove(uint16_t duration, int penStepsEBB, int rotStepsEBB) {
 	}
 	if( (1 == rotStepCorrection) && (1 == penStepCorrection) ){ // if coordinatessystems are identical
 		//set Coordinates and Speed
-		rotMotor.move(rotStepsEBB);
+		rotMotor.move(rotStepsEBB * 3 / 2);
 		rotMotor.setSpeed( abs( (float)rotStepsEBB * (float)1000 / (float)duration ) );
 		penMotor.move(penStepsEBB);
 		penMotor.setSpeed( abs( (float)penStepsEBB * (float)1000 / (float)duration ) );
 	} else {
 		//incoming EBB-Steps will be multiplied by 16, then Integer-maths is done, result will be divided by 16
 		// This make thinks here really complicated, but floating point-math kills performance and memory, believe me... I tried...
-		long rotSteps =   (  (long)rotStepsEBB * 16 / rotStepCorrection) + (long)rotStepError;	//correct incoming EBB-Steps to our microstep-Setting and multiply  by 16 to avoid floatingpoint...
+		long rotSteps =   (  (long)rotStepsEBB * 3 / 2 * 16 / rotStepCorrection) + (long)rotStepError;	//correct incoming EBB-Steps to our microstep-Setting and multiply  by 16 to avoid floatingpoint...
 		long penSteps =   (  (long)penStepsEBB * 16 / penStepCorrection) + (long)penStepError;
 
 		int rotStepsToGo = (int) (rotSteps/16);		//Calc Steps to go, which are possible on our machine
